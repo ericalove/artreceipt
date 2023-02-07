@@ -10,10 +10,10 @@ store_address_zip = "94601"
 store_address_phone = "(650) 555-3842"
 store_website = "www.theartstoreoakland.biz"
 # PRICE GUIDE:
-large_painting = 100
-small_painting = 60
-large_print = 80
-small_print = 45
+lg_painting = 100
+sm_painting = 60
+lg_print = 80
+sm_print = 45
 postcard = 5
 
 
@@ -46,8 +46,8 @@ def receipt():
                     return lg_painting_amount, sm_painting_amount
 
             painting_result = buy_painting()
-
-            # print("Large Paintings: " + str(lg_painting_amount))
+            lg_painting_total= painting_result[0] * lg_painting
+            sm_painting_total = painting_result[1] * sm_painting
 
             def buy_print():
                 print_prompt_text = "Did you buy a print? [Y] or [N] "
@@ -61,6 +61,8 @@ def receipt():
                     return lg_print_amount, sm_print_amount
 
             print_result = buy_print()
+            lg_print_total = print_result[0] * lg_print
+            sm_print_total = print_result[1] * sm_print
 
             def buy_postcard():
                 postcard_prompt_text = "Did you buy any postcards? [Y] or [N] "
@@ -73,18 +75,28 @@ def receipt():
                     return postcard_amount
 
             postcard_result = buy_postcard()
+            postcard_total = postcard_result * postcard
 
             minor_line_break = "-" * 25
-            def receipt_body()
-                print(painting_result[0])
-                print(painting_result[1])
+            def spacing(space):
+                return " " * space
+
+            def receipt_body():
+                print("  Large Paintings:" + " = " + ("$" + str(lg_painting) + " x " + str(painting_result[0]) + " =" + spacing(13) + "$" + str(lg_painting_total)))
+                print("  Small Paintings:" + " = " + ("$" + str(sm_painting) + " x " + str(painting_result[1]) + " =" + spacing(14) + "$" + str(sm_painting_total)))
+
                 print(minor_line_break)
-                print(print_result[0])
-                print(print_result[1])
+
+                print("  Large Prints:" + " = " + ("$" + str(lg_print) + " x " + str(print_result[0]) + " =" + spacing(17) + "$" + str(lg_print_total)))
+                print("  Small Prints:" + " = " + ("$" + str(sm_print) + " x " + str(print_result[1]) + " =" + spacing(17) + "$" + str(sm_print_total)))
+
                 print(minor_line_break)
-                print(postcard_result)
+
+                print("  Postcards:" + " = " + ("$" + str(postcard) + " x " + str(postcard_result) + " =" + spacing(22) + "$" + str(postcard_total)))
+
                 print(minor_line_break)
-                print("Total: ")
+
+                print("  Total: " + spacing(34) + "$" + str(lg_painting_total + sm_painting_total + lg_print_total + sm_print_total + postcard_total))
 
             line_break = "-" * 50
 
@@ -96,11 +108,7 @@ def receipt():
             print(line_break)
             print("Thank you for visiting! Stop by again soon. :)")
             print(line_break)
-        # else:
-        #     print(error)
-        #     prompt
 
-    # print("Large Paintings: " + str(lg_painting_amount))
     transaction()
 
 
