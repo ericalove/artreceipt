@@ -1,6 +1,14 @@
 # CREATE AN ART SALE RECEIPT - selling a large painting, small painting, large print, small print, and postcard
 # USE For and While for this as well. Try making the initial error in to a for loop towards a correct y/n entry.
 
+# STORE ADDRESS:
+store_name = "THE ART STORE - Fine art, home goods and more!"
+store_address_street = "2209 Market Ave, STE. 234"
+store_address_city = "Oakland"
+store_address_state = "CA"
+store_address_zip = "94601"
+store_address_phone = "(650) 555-3842"
+store_website = "www.theartstoreoakland.biz"
 # PRICE GUIDE:
 large_painting = 100
 small_painting = 60
@@ -11,6 +19,12 @@ postcard = 5
 
 def receipt():
     error = "INVALID ENTRY: Please try again :)"
+    def store_info():
+        print(store_name)
+        print(store_address_street)
+        print(store_address_city + " " + store_address_state + ", " + store_address_zip)
+        print(store_address_phone)
+        print(store_website)
     def transaction():
         prompt_text = "Start transaction? [Y] or [N] "
         prompt = input(prompt_text)
@@ -60,19 +74,25 @@ def receipt():
 
             postcard_result = buy_postcard()
 
-            line_break = "-" * 50
             minor_line_break = "-" * 25
-            print("Your receipt: ")
+            def receipt_body()
+                print(painting_result[0])
+                print(painting_result[1])
+                print(minor_line_break)
+                print(print_result[0])
+                print(print_result[1])
+                print(minor_line_break)
+                print(postcard_result)
+                print(minor_line_break)
+                print("Total: ")
+
+            line_break = "-" * 50
+
+            print("\n")
+            store_info()
+            print("\nYour receipt: ")
             print(line_break)
-            print(painting_result[0])
-            print(painting_result[1])
-            print(minor_line_break)
-            print(print_result[0])
-            print(print_result[1])
-            print(minor_line_break)
-            print(postcard_result)
-            print(minor_line_break)
-            print("Total: ")
+            receipt_body()
             print(line_break)
             print("Thank you for visiting! Stop by again soon. :)")
             print(line_break)
