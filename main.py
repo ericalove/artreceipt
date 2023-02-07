@@ -22,33 +22,39 @@ def receipt():
             print("Thank you for visiting! Stop by again soon. :)")
         elif prompt.lower() == "y":
             def buy_painting():
-                painting_prompt = input("Did you buy a painting? [Y] or [N] ")
+                painting_prompt_text = "Did you buy a painting? [Y] or [N] "
+                painting_prompt = input(painting_prompt_text)
                 if painting_prompt.lower() == "y":
                     lg_painting_amount = int(input("How many large paintings? "))
                     sm_painting_amount = int(input("How many small paintings? "))
-                elif painting_prompt.lower() != "y" and painting_prompt.lower() != "n":
+                while painting_prompt.lower() != "y" and painting_prompt.lower() != "n":
                     print(error)
+                    painting_prompt = input(painting_prompt_text)
 
             buy_painting()
 
             # print("Large Paintings: " + str(lg_painting_amount))
 
             def buy_print():
-                print_prompt = input("Did you buy a print? [Y] or [N] ")
+                print_prompt_text = "Did you buy a print? [Y] or [N] "
+                print_prompt = input(print_prompt_text)
                 if print_prompt.lower() == "y":
                     lg_print_amount = int(input("How many large prints? "))
                     sm_print_amount = int(input("How many small prints? "))
-                elif print_prompt.lower() != "y" and print_prompt.lower() != "n":
+                while print_prompt.lower() != "y" and print_prompt.lower() != "n":
                     print(error)
+                    print_prompt = input(print_prompt_text)
 
             buy_print()
 
             def buy_postcard():
-                postcard_prompt = input("Did you buy any postcards? [Y] or [N] ")
+                postcard_prompt_text = "Did you buy any postcards? [Y] or [N] "
+                postcard_prompt = input(postcard_prompt_text)
                 if postcard_prompt.lower() == "y":
                     postcard_amount = int(input("How many postcards? "))
-                elif postcard_prompt.lower() != "y" and postcard_prompt.lower() != "n":
+                while postcard_prompt.lower() != "y" and postcard_prompt.lower() != "n":
                     print(error)
+                    postcard_prompt = input(postcard_prompt_text)
 
             buy_postcard()
 
